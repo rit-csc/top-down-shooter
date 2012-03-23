@@ -1,0 +1,2 @@
+For Ubuntu 11.10 you need the following packages
+libqt4-opengl-dev libxrandr-dev libfreetype6-dev libglew1.6-dev libjpeg-dev libsndfile1-dev libopenal-dev
