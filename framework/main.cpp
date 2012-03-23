@@ -23,8 +23,8 @@ int main(int argc, char *argv[])
 	while (app.isOpen())
 	{
 		now = clock.getElapsedTime();
-
 		accum += (now - prevTime).asMilliseconds();
+		prevTime = now;
 
 		while (accum >= TICK)
 		{

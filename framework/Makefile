@@ -1,12 +1,13 @@
-
 CXX=g++
 
 LIBRARIES=-lsfml-system -lsfml-graphics -lsfml-window
+CFLAGS = -I../SFML/include -L../SFML/lib $(LIBRARIES)
+CXXFLAGS = $(CFLAGS)
 
 all: main
 
 main:
-	$(CXX) main.cpp -o main $(LIBRARIES) -L/usr/local/lib
+	$(CXX) $(CXXFLAGS) main.cpp -o main
 
 clean:
 	/bin/rm main
