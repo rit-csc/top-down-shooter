@@ -1,0 +1,123 @@
+Top-Level design
+================
+- Level design
+    - Tile based
+    - Open, city based (where towers are ICs)
+    - Computers connected by information superhighways
+        - Via hubs/switches.
+        - Or peer-to-peer
+        - Or some hybrid (perhaps you're directly connected to allies, but the
+          opponent is accessible through a hub.
+    - Building extra bases
+        - Cell-phone based?
+- Leveling
+    - Start with a crappy computer, then do upgrades?
+    - Stealing hardware from others.
+    - Upgrades are something you have to go out and buy.
+    - Currency is BitCoin based
+- Economy
+    - Your resources are based on your computer components
+    - Individual constraints
+        - Unit build speed
+        - Individual unit speed
+        - Fog of war
+        - Your AI
+        - Quantity of units
+        - Buildings/chips
+            - Some chips depend on other chips
+        - Damaged components
+            - Screen
+            - Mouse
+            - Keyboard
+        - Unit upgrades
+    - Speed, RAM, HDD space, power supply, Bitcoins (money, upgrade hardware)
+        - HDD space
+            - Records upgrades
+            - Limits upgrades by HDD space
+            - HDD knowledge can be stolen / transmitted!
+        - CPU
+            - Building speed (construction requires some CPU time)
+            - BitCoin mining
+            - AI
+            - Allocated to software, which produces different type of units.
+            - Sliders determine how you spend your CPU time between them.
+        - RAM
+            - Visibility
+            - Quantity of units (like food)
+        - BitCoins
+            - Purchasing hardware only
+        - Power Supply
+            - Powers defense, buildings
+            - Can place defenses freely, but you must eventually connect power
+              if you want them to do anything.
+            - If power supply is taken out, CPU goes into low power mode, rather
+              than failing, otherwise it would be too easy to take people out.
+    - Acquiring resources
+        - BitCoins
+            - Mined by CPU
+            - Found on internet
+- Attacks
+    - Super attacks
+        - 0-days
+- Environment (random events)
+    - Free random software mailings
+        - Sometimes good, sometimes a virus.
+    - Random events
+        - Power surge
+        - Power outage/brownout
+- Races, if we decide to implement them, could be based on OS.
+
+Map Design
+==========
+- Partitioning areas of the maps
+    - Firewalls
+    - Networks are connected by hubs.
+- How you choose your base
+    - Motherboard size
+        - Start with 1000 BitCoins with the default configuration.
+        - Size of your motherboard affects how many bitcoins you start with.
+        - Larger motherboards can have more upgrades and expansions available
+          later in the game.
+        - Smaller motherboard's `goodness' maxes out early, large motherboards
+          start out not-so-good but have much more potential.
+        - Smaller motherboards start out easier to defend because of their
+          size.
+        - Bases are square
+    - You choose/place CPU, HDD, RAM, power supply, screen, keyboard, mouse
+      (but not NIC, you /must/ have one). You are forced to buy them.
+    - Constraints
+        - NIC must be at edge of motherboard.
+        - You must run cables between components (at least the power supply);
+          you can't build on top of the cables. This means that there must
+          always be a path to every component for people to attack.
+    - Motherboard color is your (individual or team) color.
+- There are some NPC computers which you can hack into to abort them as a
+  base. 
+    - Can only use these for raw computing power.
+    - Like a member of a botnet.
+    - We still need to require people to defend their main base (to defend
+      their monitor, keyboard, etc.), so we can't allow them to change which
+      is their main computer.
+- Defenses
+    - Firewalls, in front of the NIC.
+    - AV program has programs that just walk around attacking intruders.
+    - Open traces, which consume more power, can zap enemies.
+    - Resistors act as rough terrain, to slow things down.
+    - Capacitors (super-)charge up your units.
+    - Diode: A one-way gate that can be blown up.
+- Attacking
+    - Malware/viruses
+    - Specific software that does certain things
+        - One that puts holes in your firewall/whatever.
+- Controlling units/base
+    - Macro stuff will just coast along if you're not managing it directly.
+        - This will leave you free to focus on micro at times.
+        - Will allow you some home of fixing keyboard/mouse.
+    - Hero units
+        - Not critical, but show up occaisionally
+        - Like a 0-day exploit
+            - Effectiveness degrades over time
+    - No direct control of units (except Hero)
+        - Units operate in clusters.
+    - P2P combat like Google Ant AI challenge.
+    - Don't make unit control like DotA
