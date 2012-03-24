@@ -1,14 +1,14 @@
 CXX=g++
 RM=rm
 
-LIBRARIES=-lsfml-system -lsfml-graphics -lsfml-window -lsfml-network
+LIBRARIES=-lsfml-system -lsfml-graphics -lsfml-window
 CFLAGS = -I../SFML/include -L../SFML/lib
-CXXFLAGS = $(CFLAGS) -std=gnu++0x
+CXXFLAGS = $(CFLAGS)
 
 all: main
 
 main:
-	$(CXX) $(CXXFLAGS) main.cpp Session.cpp TCPServer.cpp -o main $(LIBRARIES)
+	$(CXX) $(CXXFLAGS) main.cpp -o main $(LIBRARIES)
 
 clean:
 	$(RM) main

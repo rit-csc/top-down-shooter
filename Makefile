@@ -1,8 +1,8 @@
-FLAGS = -ISFML/include -LSFML/lib
+CFLAGS = -ISFML/include -LSFML/lib
 
 SFML/lib: SFML/CMakeLists.txt
 	cd SFML && cmake . && make
-	#cp -r SFML/lib framework
+	cp -r SFML/lib Frameworks
 
 SFML/CMakeLists.txt:
 	git submodule init
