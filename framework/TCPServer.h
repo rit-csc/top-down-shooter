@@ -8,9 +8,10 @@
 #include <list>
 #include <set>
 
+#include "Service.h"
 #include "Session.h"
 
-class TCPServer
+class TCPServer : public Service
 {
 private:
     volatile bool isAlive;
@@ -23,14 +24,14 @@ private:
     sf::TcpListener listener;
     
 public:
-    TCPServer(short listeningPort);
+    TCPServer(unsigned short listeningPort);
     
-    void tick();
+    virtual void tick();
     
     bool isShutdown();
 
     //Request a graceful shutdown
-    void shutdown();
+    virtual void shutdown();
     
     void run();
 };

@@ -4,10 +4,10 @@
 using namespace std;
 using namespace sf;
 
-bool Session::receive(Packet* p)
+Socket::Status Session::receive(Packet* p)
 {
     Lock lock(socketMutex);
-    return socket->receive(*p) == Socket::Done;
+    return socket->receive(*p);
 }
 
 void Session::send(Packet& packet) 
@@ -18,5 +18,5 @@ void Session::send(Packet& packet)
 
 void Session::onReceive(Packet* packet)
 {
-    printf("I got a packet!");
+    printf("I got a packet!\n");
 }

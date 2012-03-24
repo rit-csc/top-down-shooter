@@ -1,9 +1,10 @@
 #include "TCPServer.h"
+#include <iostream>
 
 using namespace std;
 using namespace sf;
 
-TCPServer::TCPServer(short listeningPort)
+TCPServer::TCPServer(unsigned short listeningPort)
     : isAlive(true)
 {
     listener.listen(listeningPort);
@@ -14,9 +15,10 @@ void TCPServer::tick() {
     while(!incomingMessages.empty())
     {
         std::pair<std::shared_ptr<Session>, sf::Packet*> element = incomingMessages.front();
+        incomingMessages.pop();
+        
         element.first->onReceive(element.second);
         delete element.second;
-        incomingMessages.pop();
     }
     queueMutex.unlock();
 }
@@ -50,6 +52,7 @@ void TCPServer::run()
                 {
                     std::shared_ptr<Session> session = std::make_shared<Session>(client);
                     sessions.push_back(session);
+                    printf("Got connection!\n");
                 }
             }
             else
@@ -58,15 +61,18 @@ void TCPServer::run()
                 for(;it != end; ++it)
                 {
                     Packet* p = new Packet();
-                    if(!(*it)->receive(p))
+                    if(!(*it)->receive(p) == Socket::Done)
                     {
                         //Disconnected
                         sessions.erase(it);
+                        delete p;
                     }
-                    
-                    queueMutex.lock();
-                    incomingMessages.push(std::make_pair(*it, p));
-                    queueMutex.unlock();
+                    else
+                    {
+                        queueMutex.lock();
+                        incomingMessages.push(std::make_pair(*it, p));
+                        queueMutex.unlock();
+                    }
                 }
             }
         }

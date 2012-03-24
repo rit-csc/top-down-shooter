@@ -10,7 +10,6 @@ class Session
 private:
     sf::TcpSocket* socket;
     sf::Mutex socketMutex;
-    
 public:
 
     Session(sf::TcpSocket* s)
@@ -24,7 +23,7 @@ public:
     }
 
     void send(sf::Packet& packet);
-    bool receive(sf::Packet* p);
+    sf::Socket::Status receive(sf::Packet* p);
 
     virtual void onReceive(sf::Packet* packet);
 
