@@ -1,4 +1,4 @@
-#include "TCPClient.h"
+#include "TCPClient.hpp"
 #include <iostream>
 
 using namespace std;
@@ -28,6 +28,10 @@ void TCPClient::tick()
 Socket::Status TCPClient::connect(const IpAddress remoteAddress, unsigned short remotePort, Time timeout)
 {
     status = socket.connect(remoteAddress, remotePort, timeout);
+    if(status == Socket::Status::Done)
+    {
+        printf("Connected!");
+    }
 }
 
 void TCPClient::disconnect()

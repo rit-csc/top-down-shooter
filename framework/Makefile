@@ -8,7 +8,7 @@ CXXFLAGS = $(CFLAGS) -std=gnu++0x
 all: main
 
 main:
-	$(CXX) $(CXXFLAGS) main.cpp Session.cpp TCPServer.cpp TCPClient.cpp -o main $(LIBRARIES)
+	$(CXX) $(CXXFLAGS) main.cpp network/network.cpp network/Session.cpp network/TCPServer.cpp network/TCPClient.cpp -o main $(LIBRARIES)
 
 clean:
 	$(RM) main

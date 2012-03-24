@@ -2,74 +2,28 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "TCPServer.h"
-#include "TCPClient.h"
-
-TCPServer *server;
-sf::Thread *serverThread;
-
-TCPClient *client;
-sf::Thread *clientThread;
-
-void teardownServer() 
-{
-    if(server != nullptr)
-    {
-        server->shutdown();
-        serverThread->wait();
-        delete server;
-        delete serverThread;
-    }
-}
-
-void teardownClient()
-{
-    if(client != nullptr)
-    {
-        client->shutdown();
-        clientThread->wait();
-        delete client;
-        delete clientThread;
-    }
-}
-
-void setupServer()
-{
-    if(server != nullptr)
-    {
-        teardownServer();
-    } 
-    server = new TCPServer(44453);
-    serverThread = new sf::Thread(&TCPServer::run, server);
-    serverThread->launch();
-}
-
-void setupClient()
-{
-    if(client != nullptr)
-    {
-        teardownClient();
-    }
-    client = new TCPClient();
-    clientThread = new sf::Thread(&TCPClient::run, client);
-    clientThread->launch();
-}
+#include "network/network.hpp"
 
 // 16 ms tick time
 const long TICK = 16;
 
 int main(int argc, char *argv[])
 {
+    //Setup networking -- this will be moved somewhere more appropriate later
+    
     if(argc > 1)
     {
         printf("Starting server...\n");
         setupServer();
+        serverThread->launch();
     }
     else
     {
         printf("Starting client...\n");
         setupClient();
-        client->connect("127.0.0.1", 44453, sf::seconds(30.0f));
+
+        ((TCPClient*)client)->connect("127.0.0.1", SERVER_LISTEN_PORT, sf::seconds(30.0f));
+        clientThread->launch();
     }
 
     //Setup Window
@@ -113,6 +67,9 @@ int main(int argc, char *argv[])
 					app.close();
 				}
 			}
+			
+			server->tick();
+			client->tick();
 		}
 
         //Clear and redraw the screen
@@ -121,6 +78,7 @@ int main(int argc, char *argv[])
 		app.display();
 	}
 
+    //Cleanup step
     teardownServer();
     teardownClient();
 
