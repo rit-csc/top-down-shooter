@@ -7,7 +7,7 @@ CXXFLAGS = $(CFLAGS)
 
 all: main
 
-main: 
+main: main.cpp
 	$(CXX) $(CXXFLAGS) helpers/faststring.cpp main.cpp -o main $(LIBRARIES)
 
 clean:
