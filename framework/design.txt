@@ -1,0 +1,15 @@
+Thoughts
+========
+- We need to implement States for our state machine
+    - We need to write a simple stack based state machine
+	- What methods will be common to all States?
+	- Need a State interface
+	- States will probably need to have some kind of intialization() and
+	  update(), possibly also have onBecomeState() or similar methods
+- How will we handle events that happen in our game?
+    - Message passing seems promising, especially for a networked game
+- Do we want to implement a simple window manager for our menus?
+    - We could hard code them instead, but this is less flexible, also gives
+	  someone something to do 
+	- Fits in well with our message passing, (this is also the default way in
+	  SFML)
