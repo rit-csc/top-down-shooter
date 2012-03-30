@@ -2,6 +2,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
+#include <sstream>
+
 #include "helpers/faststring.hpp"
 
 // 16 ms tick time
@@ -15,12 +17,16 @@ static const sf::Text& getFPS()
 	static sf::Time prevTime = clock.getElapsedTime();
 	static sf::Time now = clock.getElapsedTime();
 	static int frames = 0;
+	static std::stringstream ss;
 
 	now = clock.getElapsedTime();
 	if ((now - prevTime).asMilliseconds() >= 1000)
 	{
 		prevTime = now;
-		txtFPS.setString(itostr(frames));
+		ss.str("");
+		ss << frames;
+		txtFPS.setString(ss.str());
+		//txtFPS.setString(itostr(frames));
 		frames = 0;
 	}
 	++frames;
