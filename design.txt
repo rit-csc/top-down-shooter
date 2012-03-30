@@ -121,3 +121,12 @@ Map Design
         - Units operate in clusters.
     - P2P combat like Google Ant AI challenge.
     - Don't make unit control like DotA
+- Units
+	- HP, Aggro-Range, Speed, Attack Speed, Rock Paper Scissors
+
+- AI
+	- Pinging to control units
+	- Possible pheromone trails for Hero units?
+	- Types of pings Fight, Avoid/Runaway, Ignore, Follow
+	- Different levels of AI, effect different parameters of the AI, like
+	  vision, attack speed, etc?
