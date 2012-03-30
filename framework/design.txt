@@ -23,3 +23,4 @@ http://softwarebyjoel.blogspot.co.uk/2012/03/service-driven-game-development.htm
 Window Manager Extension for SFML
 =================================
 http://code.google.com/p/sfui/
+https://github.com/LaurentGomila/SFML/wiki/TutorialCEGUI
