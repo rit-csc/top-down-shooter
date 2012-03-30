@@ -2,7 +2,7 @@ CFLAGS = -ISFML/include -LSFML/lib
 
 SFML/lib: SFML/CMakeLists.txt
 	cd SFML && cmake . && make
-	cp SFML/lib Frameworks
+	cp -r SFML/lib Frameworks
 
 SFML/CMakeLists.txt:
 	git submodule init
