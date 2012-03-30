@@ -19,3 +19,7 @@ Message Passing Frameworks
 Here's some initial thoughts for the message passing design
 
 http://softwarebyjoel.blogspot.co.uk/2012/03/service-driven-game-development.html
+
+Window Manager Extension for SFML
+=================================
+http://code.google.com/p/sfui/
