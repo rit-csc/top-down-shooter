@@ -1,0 +1,20 @@
+
+2x1 NIC
+1x1 CPU
+1x3 MEM
+2x3 HDD
+2x2 PS
+1x1 Screen
+1x1 Mouse
+1x1 Keyboard
+1x1 SW/AV
+
+Small Motherboard: 
+    7x7
+    
+Others:
+    ?x?
+    
+Maps are made up of discrete "maps"
+
+
