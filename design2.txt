@@ -1,0 +1,91 @@
+State Changes
+    State Constructure( State Manager )
+    updateLook( dt )
+    renderer()
+    bool -> onBecomeState() -> reset
+    onReleaseState()
+    close()
+
+States
+    MainMenu
+    Host Game
+    Join Game
+    Load Game
+    Game
+    Unwind
+    Config
+
+    MainMenu    -> Host Game
+    MainMenu    -> Join Game
+    MainMenu    -> Config
+    Host        -> Join
+    Host        -> Unwind
+    Join        -> Load Game
+    Load Game   -> Game
+    Game        -> Unwind
+    Game        -> Error
+    Unwind      -> Main Menu
+
+States will be composed on top of each other by pushing them onto a stack (so
+that we can handle freeing memory from different state transitions (e.g.
+closing down the server after hosting a game)). The stack is freed in the
+Unwind state.
+
+State Manager
+    stack[States]
+
+    Every game state pushes the next state
+        push (new Join ())
+
+StateManager
+    - push( State )
+    - unwind()
+    - pop()     -> Pop yourself
+
+
+Game
+----
+Buildings
+Units
+Level
+Gui/Screens
+Tile
+
+
+Player
+------
+Buildings
+Bitcoins
+Units
+Upgrade List
+Allies / Team
+
+
+Buildings / Units
+-----------------
+Size
+Health
+Location
+Orientation
+
+Building Sizes
+--------------
+2x1 NIC
+1x1 CPU
+1x3 MEM
+2x3 HDD
+2x2 PS
+1x1 Screen
+1x1 Mouse
+1x1 Keyboard
+1x1 SW/AV
+
+Small Motherboard: 
+    7x7
+    
+Others:
+    ?x?
+    
+Maps are made up of discrete "maps"
+
+
