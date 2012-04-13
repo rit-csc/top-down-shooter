@@ -1,4 +1,5 @@
-
+#ifndef __COMMON_STRUCTS_H__
+#define __COMMON_STRUCTS_H__
 
 enum Orientation {
 	North,
@@ -19,4 +20,4 @@ struct Size {
 };
 
 
-
+#endif
